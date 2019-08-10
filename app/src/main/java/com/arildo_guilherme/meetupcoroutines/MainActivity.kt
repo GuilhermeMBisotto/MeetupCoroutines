@@ -1,4 +1,4 @@
-package co.dx.components.meetupcoroutines
+package com.arildo_guilherme.meetupcoroutines
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import co.dx.components.meetupcoroutines.R
 
 class MainActivity : AppCompatActivity() {
 

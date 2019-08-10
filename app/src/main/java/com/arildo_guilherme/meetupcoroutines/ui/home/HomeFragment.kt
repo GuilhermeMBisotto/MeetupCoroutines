@@ -1,4 +1,4 @@
-package co.dx.components.meetupcoroutines.ui.home
+package com.arildo_guilherme.meetupcoroutines.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

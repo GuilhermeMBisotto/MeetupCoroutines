@@ -1,4 +1,4 @@
-package co.dx.components.meetupcoroutines
+package com.arildo_guilherme.meetupcoroutines
 
 import org.junit.Test
 
