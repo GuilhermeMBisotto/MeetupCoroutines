@@ -1,11 +1,12 @@
 package com.arildo_guilherme.data.characters.contract
 
 import com.arildo_guilherme.data.characters.model.CharactersResult
+import retrofit2.Response
 
 interface CharactersDataSource {
 
-    interface remote {
-        suspend fun getcharacters(offset: Int, limit: Int): CharactersResult
-        suspend fun getcharacter(id: Int): CharactersResult
+    interface Remote {
+        suspend fun getCharacters(offset: Int, limit: Int): Response<CharactersResult>?
+        suspend fun getCharacter(id: Int): Response<CharactersResult>?
     }
 }

@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import co.dx.components.meetupcoroutines.R
+import com.arildo_guilherme.meetupcoroutines.R
 
 class DashboardFragment : Fragment() {
 

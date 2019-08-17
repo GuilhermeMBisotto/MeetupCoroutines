@@ -21,8 +21,8 @@ class AuthInterceptor : Interceptor {
         val timestamp = System.currentTimeMillis().toString()
         val request = chain.request()
         val authenticatedRequest = request.url.newBuilder()
-            .addQueryParameter(API_KEY, BuildConfig.API_PUBLIC_KEY)
             .addQueryParameter(TIMESTAMP, timestamp)
+            .addQueryParameter(API_KEY, BuildConfig.API_PUBLIC_KEY)
             .addQueryParameter(
                 HASH,
                 getHash(timestamp)
@@ -33,7 +33,7 @@ class AuthInterceptor : Interceptor {
 
     private fun getHash(timestamp: String): String {
         try {
-            val value = timestamp + BuildConfig.API_PUBLIC_KEY + BuildConfig.API_PRIVATE_KEY
+            val value = timestamp + BuildConfig.API_PRIVATE_KEY + BuildConfig.API_PUBLIC_KEY
             return toMD5(value)
         } catch (e: java.lang.Exception) {
             throw Exception(HASH_EXCEPTION)

@@ -7,7 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import co.dx.components.meetupcoroutines.R
+import com.arildo_guilherme.meetupcoroutines.R
 
 class MainActivity : AppCompatActivity() {
 

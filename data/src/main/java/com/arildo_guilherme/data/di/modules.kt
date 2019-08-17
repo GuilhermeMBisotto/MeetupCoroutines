@@ -11,7 +11,7 @@ private val apiServiceModule = module {
 }
 
 private val repositoryModule = module {
-    single { CharactersRepositoryImpl(get()) }
+    single { CharactersRepositoryImpl(get() as CharactersRemoteDataSource) }
 }
 
 private val dataSourceModule = module {

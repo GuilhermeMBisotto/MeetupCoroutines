@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:background="@color/window_bg">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            tools:text="@tools:sample/lorem" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_charactersItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:adapter="@{adapter}"
+            app:data="@{obj}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_character" />
+    </LinearLayout>
+
+    <data>
+
+        <variable
+            name="obj"
+            type="com.arildo_guilherme.data.characters.model.Character" />
+
+        <variable
+            name="adapter"
+            type="com.arildo_guilherme.meetupcoroutines.ui.characters.adapters.CharactersAdapter" />
+    </data>
+</layout>
