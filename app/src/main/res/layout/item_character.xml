@@ -1,30 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout
-        android:layout_width="120dp"
-        android:layout_height="160dp"
-        android:layout_margin="4dp"
-        android:foreground="@drawable/ripple_white"
-        android:onClick="@{() -> adapter.onItemClicked(obj)}">
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_margin="4dp"
+            android:foreground="@drawable/ripple_white"
+            android:onClick="@{() -> adapter.onItemClicked(obj)}">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            tools:src="@tools:sample/avatars" />
-    </FrameLayout>
+                android:id="@+id/ivImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                bind:imageSet="@{obj.thumbnail.path}"
+                tools:src="@tools:sample/avatars" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black80"
+                bind:layout_constraintBottom_toBottomOf="@id/ivImage"
+                bind:layout_constraintEnd_toEndOf="parent"
+                android:padding="8dp"
+                bind:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="REQUEST 1"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/roboto_mono"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
 
         <variable
-            name="adapter"
-            type="com.arildo_guilherme.meetupcoroutines.ui.characters.adapters.CharactersAdapter" />
+                name="adapter"
+                type="com.arildo_guilherme.meetupcoroutines.ui.characters.adapters.CharactersAdapter" />
 
         <variable
-            name="obj"
-            type="com.arildo_guilherme.data.characters.model.Character" />
+                name="obj"
+                type="com.arildo_guilherme.data.characters.model.Character" />
     </data>
 </layout>

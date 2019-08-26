@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:adapter="@{adapter}"
-            app:data="@{obj}"
+            app:data="@{obj.results}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:itemCount="4"
@@ -37,7 +37,7 @@
 
         <variable
             name="obj"
-            type="com.arildo_guilherme.data.characters.model.Character" />
+            type="com.arildo_guilherme.data.characters.model.CharactersData" />
 
         <variable
             name="adapter"

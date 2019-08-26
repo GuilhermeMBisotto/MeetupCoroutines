@@ -10,7 +10,7 @@ class CharactersRepositoryImpl(private val remote: CharactersDataSource.Remote) 
 
     override suspend fun getCharacters(offset: Int, limit: Int): ArrayList<Character>? {
         val response = remote.getCharacters(offset, limit)
-        Log.e(">>>RESPONSE:", "$response")
+        //Log.e(">>>RESPONSE:", "$response")
         return response?.body()?.data?.results
     }
 

@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.arildo_guilherme.meetupcoroutines.BR
 import com.arildo_guilherme.meetupcoroutines.utils.bindingadapters.helpers.BindableAdapter
 
 abstract class BaseRecyclerViewAdapter<T>(
@@ -22,17 +22,15 @@ abstract class BaseRecyclerViewAdapter<T>(
     class BaseViewHolder<T>(private val binding: ViewDataBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        val layoutManager: LinearLayoutManager = LinearLayoutManager(binding.root.context)
-
         fun bind(obj: Any) {
-            // binding.setVariable(BR.obj, obj)
+            binding.setVariable(BR.obj, obj)
             binding.executePendingBindings()
         }
 
         fun bind(
             adapter: BaseRecyclerViewAdapter<T>
         ) {
-            // binding.setVariable(BR.adapter, adapter)
+            binding.setVariable(BR.adapter, adapter)
             binding.executePendingBindings()
         }
     }

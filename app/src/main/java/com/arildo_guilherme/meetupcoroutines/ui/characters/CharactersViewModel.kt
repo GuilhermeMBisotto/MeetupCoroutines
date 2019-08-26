@@ -14,9 +14,6 @@ class CharactersViewModel(private val repository: CharactersRepository) : BaseVi
         var limit = 20
     }
 
-    // val characters = liveData(coroutineContext) {
-    //     emit(repository.getCharacters(offset, limit))
-    // }
     private val _characters = MutableLiveData<ArrayList<Character>>()
     val characters = Transformations.map(_characters) { it }
 

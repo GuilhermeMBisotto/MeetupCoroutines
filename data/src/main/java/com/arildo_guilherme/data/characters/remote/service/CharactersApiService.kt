@@ -10,8 +10,8 @@ import retrofit2.http.Query
 interface CharactersApiService {
 
     @GET("v1/public/characters")
-    fun characters(@Query("offset") offset: Int, @Query("limit") limit: Int): Call<Response<CharactersResult>>
+    suspend fun characters(@Query("offset") offset: Int, @Query("limit") limit: Int): Response<CharactersResult>
 
     @GET("v1/public/characters/{id}")
-    fun character(@Path("id") id: Int): Call<Response<CharactersResult>>
+    suspend fun character(@Path("id") id: Int): Response<CharactersResult>
 }

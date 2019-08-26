@@ -9,7 +9,7 @@ class CharactersRemoteDataSource(private val api: CharactersApiService) :
     CharactersDataSource.Remote {
 
     override suspend fun getCharacters(offset: Int, limit: Int): Response<CharactersResult>? =
-        api.characters(offset, limit).execute().body()
+        api.characters(offset, limit)
 
-    override suspend fun getCharacter(id: Int): Response<CharactersResult> ?= api.character(id).execute().body()
+    override suspend fun getCharacter(id: Int): Response<CharactersResult> ?= api.character(id)
 }
