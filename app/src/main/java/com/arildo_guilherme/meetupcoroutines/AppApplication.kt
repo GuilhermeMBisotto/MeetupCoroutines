@@ -3,10 +3,12 @@ package com.arildo_guilherme.meetupcoroutines
 import android.app.Application
 import com.arildo_guilherme.data.di.getDataModules
 import com.arildo_guilherme.meetupcoroutines.di.getAppModules
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 
+@ObsoleteCoroutinesApi
 class AppApplication : Application() {
 
     override fun onCreate() {

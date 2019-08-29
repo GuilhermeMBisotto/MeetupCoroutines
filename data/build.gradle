@@ -28,6 +28,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    /* ANDROIDX */
+    api "androidx.core:core-ktx:$core_ktx_version"
+    api "androidx.lifecycle:lifecycle-extensions:$arch_version"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_version"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$arch_version"
+    api "androidx.work:work-runtime-ktx:$work_runtime_version"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:$arch_version"
+
     /* RETROFIT */
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"

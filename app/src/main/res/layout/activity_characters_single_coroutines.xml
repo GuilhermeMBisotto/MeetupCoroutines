@@ -7,16 +7,22 @@
             android:id="@+id/coordinator_characters"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/almost_black"
-            android:fitsSystemWindows="true">
+            android:background="@color/almost_black">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_characters"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
+                android:paddingTop="32dp"
+                android:paddingBottom="32dp"
                 app:data="@{viewModel.characters}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:spanCount="3"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_character" />
@@ -31,15 +37,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
                 name="viewModel"
-                type="com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersViewModel" />
-
-        <import type="android.view.View" />
+                type="com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersSingleCoroutinesViewModel" />
     </data>
 </layout>

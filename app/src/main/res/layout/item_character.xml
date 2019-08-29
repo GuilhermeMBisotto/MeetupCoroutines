@@ -31,8 +31,8 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="REQUEST 1"
-                    android:textSize="16sp"
+                    android:text="@{obj.coroutineName}"
+                    android:textSize="18sp"
                     android:fontFamily="@font/roboto_mono"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

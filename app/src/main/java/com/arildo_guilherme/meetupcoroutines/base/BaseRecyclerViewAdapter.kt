@@ -10,7 +10,7 @@ import com.arildo_guilherme.meetupcoroutines.BR
 import com.arildo_guilherme.meetupcoroutines.utils.bindingadapters.helpers.BindableAdapter
 
 abstract class BaseRecyclerViewAdapter<T>(
-    private var items: List<T>
+    private var items: MutableList<T>
 ) :
     RecyclerView.Adapter<BaseRecyclerViewAdapter.BaseViewHolder<T>>(), BindableAdapter<List<T>> {
 
@@ -70,7 +70,10 @@ abstract class BaseRecyclerViewAdapter<T>(
     override fun getItemViewType(position: Int): Int = getLayoutIdForPosition(position)
 
     override fun setData(data: List<T>?) {
-        this.items = data ?: listOf()
+        this.items.clear()
+        data?.run {
+            this@BaseRecyclerViewAdapter.items.addAll(data)
+        }
         notifyDataSetChanged()
     }
 }

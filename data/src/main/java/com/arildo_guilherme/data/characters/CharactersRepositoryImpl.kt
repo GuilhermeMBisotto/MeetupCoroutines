@@ -1,6 +1,5 @@
 package com.arildo_guilherme.data.characters
 
-import android.util.Log
 import com.arildo_guilherme.data.characters.contract.CharactersDataSource
 import com.arildo_guilherme.data.characters.contract.CharactersRepository
 import com.arildo_guilherme.data.characters.model.Character
@@ -16,7 +15,7 @@ class CharactersRepositoryImpl(private val remote: CharactersDataSource.Remote) 
 
     override suspend fun getCharacter(id: Int): ArrayList<Character>? {
         val response = remote.getCharacter(id)
-        Log.e(">>>RESPONSE:", "$response")
+//        Log.e(">>>RESPONSE:", "$response")
         return response?.body()?.data?.results
     }
 }
