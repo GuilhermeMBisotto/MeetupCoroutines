@@ -31,7 +31,7 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{obj.coroutineName}"
+                    android:text="@{obj.coroutineName == null ? obj.name : obj.coroutineName}"
                     android:textSize="18sp"
                     android:fontFamily="@font/roboto_mono"/>
         </LinearLayout>

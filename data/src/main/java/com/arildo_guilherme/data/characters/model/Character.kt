@@ -16,5 +16,5 @@ data class Character(
     var stories: Stories,
     var events: Events,
     var urls: ArrayList<Url>,
-    var coroutineName: String
+    var coroutineName: String?
 ) : Parcelable
