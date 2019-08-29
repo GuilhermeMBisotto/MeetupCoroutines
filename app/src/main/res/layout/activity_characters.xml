@@ -3,7 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/coordinator_characters"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -14,29 +14,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
-                android:paddingBottom="72dp"
+                android:paddingTop="32dp"
+                android:paddingBottom="32dp"
                 app:data="@{viewModel.characters}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:spanCount="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:spanCount="3"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_character" />
-
-        <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/appbar_characters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_scrollFlags="scroll|enterAlways" />
-        </com.google.android.material.appbar.AppBarLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
 
