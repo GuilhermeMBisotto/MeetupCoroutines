@@ -1,10 +1,11 @@
 package com.arildo_guilherme.meetupcoroutines.ui
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.Pair
 import com.arildo_guilherme.meetupcoroutines.R
+import com.arildo_guilherme.meetupcoroutines.base.BaseActivity
+import com.arildo_guilherme.meetupcoroutines.databinding.ActivityMainBinding
 import com.arildo_guilherme.meetupcoroutines.ui.animations.AnimationsActivity
+import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersActivity
 import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersMultiCoroutinesActivity
 import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersSingleCoroutinesActivity
 import com.arildo_guilherme.meetupcoroutines.ui.coffee.CoffeeActivity
@@ -15,14 +16,14 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.ObsoleteCoroutinesApi
 
 @ExperimentalCoroutinesApi
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     @ObsoleteCoroutinesApi
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun subscribeUi() {
+        super.subscribeUi()
 
-        btnAnimations.setOnClickListener {
+
+        binding.btnAnimations.setOnClickListener {
             launchActivityForSharedElements<AnimationsActivity>(
                 null,
                 Pair(btnAnimations, "containerAnimation"),
@@ -30,17 +31,20 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        btnCoffee.setOnClickListener {
+        binding.btnCoffee.setOnClickListener {
             launchActivity<CoffeeActivity> { }
         }
 
-        btnSingleRequests.setOnClickListener {
+        binding.btnSingleRequests.setOnClickListener {
             launchActivity<CharactersSingleCoroutinesActivity> { }
         }
 
-        btnMultipleRequests.setOnClickListener {
+        binding.btnMultipleRequests.setOnClickListener {
             launchActivity<CharactersMultiCoroutinesActivity> { }
         }
 
+        binding.btnCharacters.setOnClickListener {
+            launchActivity<CharactersActivity> { }
+        }
     }
 }
