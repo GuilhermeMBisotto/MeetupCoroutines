@@ -20,14 +20,6 @@ dependencies {
     /* DATA */
     implementation project(':data')
 
-    /* ANDROIDX */
-    implementation "androidx.core:core-ktx:$core_ktx_version"
-    implementation "androidx.lifecycle:lifecycle-extensions:$arch_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$arch_version"
-    implementation "androidx.work:work-runtime-ktx:$work_runtime_version"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$arch_version"
-
     /* DESIGN */
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"

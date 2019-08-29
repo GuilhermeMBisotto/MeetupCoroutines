@@ -19,7 +19,7 @@ import kotlin.system.measureTimeMillis
  * future but there is no replacement for them yet, so they cannot be deprecated right away.
  */
 @ObsoleteCoroutinesApi
-class CharactersMultiRequestViewModel(private val repository: CharactersRepository) : BaseViewModel() {
+class CharactersSingleCoroutinesViewModel(private val repository: CharactersRepository) : BaseViewModel() {
 
     companion object {
         private val list: ArrayList<Character> = arrayListOf()
@@ -69,9 +69,6 @@ class CharactersMultiRequestViewModel(private val repository: CharactersReposito
         _time.postValue(measureTimeMillis {
             coroutineScope {
                 launch(CoroutineName("c_one")) { processIds(idsChannel, "c_one") }
-                launch(CoroutineName("c_two")) { processIds(idsChannel, "c_two") }
-                launch(CoroutineName("c_three")) { processIds(idsChannel, "c_three") }
-                launch(CoroutineName("c_four")) { processIds(idsChannel, "c_four") }
             }
         })
     }

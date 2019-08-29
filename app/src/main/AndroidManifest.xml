@@ -25,15 +25,19 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".ui.characters.CharactersMultiRequestActivity"
+                android:name=".ui.characters.CharactersMultiCoroutinesActivity"
                 android:theme="@style/AppTheme" />
 
         <activity
-                android:name=".ui.characters.CharactersSingleRequestActivity"
+                android:name=".ui.characters.CharactersSingleCoroutinesActivity"
                 android:theme="@style/AppTheme" />
 
         <activity
                 android:name=".ui.animations.AnimationsActivity"
+                android:screenOrientation="portrait" />
+
+        <activity
+                android:name=".ui.coffee.CoffeeActivity"
                 android:screenOrientation="portrait" />
 
         <receiver

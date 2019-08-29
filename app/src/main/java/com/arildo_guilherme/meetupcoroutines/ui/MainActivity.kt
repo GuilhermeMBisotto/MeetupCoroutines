@@ -5,8 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.Pair
 import com.arildo_guilherme.meetupcoroutines.R
 import com.arildo_guilherme.meetupcoroutines.ui.animations.AnimationsActivity
-import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersMultiRequestActivity
-import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersSingleRequestActivity
+import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersMultiCoroutinesActivity
+import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersSingleCoroutinesActivity
+import com.arildo_guilherme.meetupcoroutines.ui.coffee.CoffeeActivity
 import com.arildo_guilherme.meetupcoroutines.utils.extensions.launchActivity
 import com.arildo_guilherme.meetupcoroutines.utils.extensions.launchActivityForSharedElements
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,16 +30,16 @@ class MainActivity : AppCompatActivity() {
             )
         }
 
-        btnCafe.setOnClickListener {
-
+        btnCoffee.setOnClickListener {
+            launchActivity<CoffeeActivity> { }
         }
 
         btnSingleRequests.setOnClickListener {
-            launchActivity<CharactersSingleRequestActivity> { }
+            launchActivity<CharactersSingleCoroutinesActivity> { }
         }
 
         btnMultipleRequests.setOnClickListener {
-            launchActivity<CharactersMultiRequestActivity> { }
+            launchActivity<CharactersMultiCoroutinesActivity> { }
         }
 
     }

@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.arildo_guilherme.meetupcoroutines.R
 import com.arildo_guilherme.meetupcoroutines.base.BaseActivity
-import com.arildo_guilherme.meetupcoroutines.databinding.ActivityCharactersMultiRequestBinding
+import com.arildo_guilherme.meetupcoroutines.databinding.ActivityCharactersSingleCoroutinesBinding
 import com.arildo_guilherme.meetupcoroutines.ui.characters.adapters.CharactersAdapter
 import kotlinx.coroutines.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -28,26 +28,26 @@ import org.koin.android.viewmodel.ext.android.viewModel
  * future but there is no replacement for them yet, so they cannot be deprecated right away.
  */
 @ObsoleteCoroutinesApi
-class CharactersMultiRequestActivity :
-    BaseActivity<ActivityCharactersMultiRequestBinding>(R.layout.activity_characters_multi_request) {
+class CharactersSingleCoroutinesActivity :
+    BaseActivity<ActivityCharactersSingleCoroutinesBinding>(R.layout.activity_characters_single_coroutines) {
 
-    private val multiRequestViewModel: CharactersMultiRequestViewModel by viewModel()
+    private val singleCoroutinesViewModel: CharactersSingleCoroutinesViewModel by viewModel()
     private val adapter: CharactersAdapter by lazy {
         CharactersAdapter {}
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.viewModel = multiRequestViewModel
+        binding.viewModel = singleCoroutinesViewModel
         binding.recyclerViewCharacters.adapter = adapter
 
         launch {
             withContext(Dispatchers.IO) {
-                multiRequestViewModel.getCharacters()
+                singleCoroutinesViewModel.getCharacters()
             }
         }
 
-        multiRequestViewModel.time.observe(this, Observer {
+        singleCoroutinesViewModel.time.observe(this, Observer {
             Toast.makeText(this, "Request time: $it", Toast.LENGTH_LONG).show()
         })
     }

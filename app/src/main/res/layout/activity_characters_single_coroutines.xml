@@ -32,6 +32,6 @@
 
         <variable
                 name="viewModel"
-                type="com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersMultiRequestViewModel" />
+                type="com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersSingleCoroutinesViewModel" />
     </data>
 </layout>
