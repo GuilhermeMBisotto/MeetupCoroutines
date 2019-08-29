@@ -16,19 +16,52 @@
             tools:context=".ui.animations.AnimationsActivity">
 
         <TextView
+                android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="48dp"
                 android:fontFamily="@font/roboto_mono"
                 android:text="ANIMATIONS"
-                android:id="@+id/tvTitle"
-                android:visibility="invisible"
-                tools:visibility="visible"
                 android:textColor="@color/almost_black"
                 android:textSize="24sp"
+                android:visibility="invisible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+        <TextView
+                android:id="@+id/tvWith"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_mono"
+                android:text="WITH"
+                android:textColor="@color/almost_black"
+                android:textSize="24sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                tools:visibility="visible" />
+
+        <TextView
+                android:id="@+id/tvCoroutines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_mono"
+                android:text="COROUTINES"
+                android:textColor="@color/almost_black"
+                android:textSize="24sp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWith"
+                tools:visibility="visible" />
+
+        <ImageView
+                android:id="@+id/ivEsse"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

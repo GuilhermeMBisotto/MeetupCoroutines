@@ -26,11 +26,13 @@
         </activity>
         <activity
                 android:name=".ui.characters.CharactersActivity"
-                android:theme="@style/AppTheme" />
+                android:theme="@style/AppTheme"
+                android:screenOrientation="portrait"  />
 
 
         <activity
                 android:name=".ui.animations.AnimationsActivity"
+                android:theme="@style/AppTheme"
                 android:screenOrientation="portrait" />
 
         <receiver

@@ -3,45 +3,43 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/coordinator_characters"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/almost_black">
+            android:background="@color/almost_black"
+            android:fitsSystemWindows="true">
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_characters"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
-                android:paddingBottom="72dp"
                 app:data="@{viewModel.characters}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:spanCount="3"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:itemCount="4"
                 tools:listitem="@layout/item_character" />
 
-        <com.google.android.material.appbar.AppBarLayout
-                android:id="@+id/appbar_characters"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/white"
+                android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.appbar.MaterialToolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_scrollFlags="scroll|enterAlways" />
-        </com.google.android.material.appbar.AppBarLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
 
         <variable
                 name="viewModel"
                 type="com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersViewModel" />
+
+        <import type="android.view.View" />
     </data>
 </layout>

@@ -16,9 +16,11 @@ class CharactersViewModel(private val repository: CharactersRepository) : BaseVi
 
     private val _characters = MutableLiveData<ArrayList<Character>>()
     val characters = Transformations.map(_characters) { it }
+    val isLoading = MutableLiveData(true)
 
     fun getCharacters() = launch {
         val response = repository.getCharacters(offset, limit)
         _characters.postValue(response)
+        isLoading.postValue(false)
     }
 }

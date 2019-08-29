@@ -25,13 +25,14 @@
                 bind:layout_constraintBottom_toBottomOf="@id/ivImage"
                 bind:layout_constraintEnd_toEndOf="parent"
                 android:padding="8dp"
+                android:gravity="center"
                 bind:layout_constraintStart_toStartOf="parent">
 
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="REQUEST 1"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:fontFamily="@font/roboto_mono"/>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
