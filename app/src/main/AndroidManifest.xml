@@ -9,11 +9,11 @@
             android:name=".AppApplication"
             android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
-            android:usesCleartextTraffic="true"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            android:usesCleartextTraffic="true">
         <activity
                 android:name=".ui.MainActivity"
                 android:label="@string/app_name">
@@ -25,9 +25,12 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".ui.characters.CharactersActivity"
+                android:name=".ui.characters.CharactersMultiRequestActivity"
                 android:theme="@style/AppTheme" />
 
+        <activity
+                android:name=".ui.characters.CharactersSingleRequestActivity"
+                android:theme="@style/AppTheme" />
 
         <activity
                 android:name=".ui.animations.AnimationsActivity"

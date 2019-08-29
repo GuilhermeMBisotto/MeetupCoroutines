@@ -1,6 +1,5 @@
 package com.arildo_guilherme.meetupcoroutines.ui.characters
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.arildo_guilherme.data.characters.contract.CharactersRepository
@@ -12,9 +11,18 @@ import kotlinx.coroutines.channels.consumeEach
 import kotlinx.coroutines.channels.produce
 import kotlin.system.measureTimeMillis
 
-class CharactersViewModel(private val repository: CharactersRepository) : BaseViewModel() {
+/* annotation class ObsoleteCoroutinesApi (source)
+ * Marks declarations that are obsolete in coroutines API,
+ * which means that the design of the corresponding declarations has
+ * serious known flaws and they will be redesigned in the future.
+ * Roughly speaking, these declarations will be deprecated in the
+ * future but there is no replacement for them yet, so they cannot be deprecated right away.
+ */
+@ObsoleteCoroutinesApi
+class CharactersMultiRequestViewModel(private val repository: CharactersRepository) : BaseViewModel() {
 
     companion object {
+        private val list: ArrayList<Character> = arrayListOf()
         private val ids = listOf(
             1009144,
             1009149,
@@ -41,31 +49,33 @@ class CharactersViewModel(private val repository: CharactersRepository) : BaseVi
     private val _characters = MutableLiveData<ArrayList<Character>>()
     val characters = Transformations.map(_characters) { it }
 
-//    fun getCharacters() = launch {
-//        val response = repository.getCharacters(offset, limit)
-//        _characters.postValue(response)
-//    }
+    private val _time = MutableLiveData<Long>()
+    val time = Transformations.map(_time) { it }
 
-    @ObsoleteCoroutinesApi
+    /* annotation class ExperimentalCoroutinesApi (source)
+     * Marks declarations that are still experimental in coroutines API,
+     * which means that the design of the corresponding declarations has open
+     * issues which may (or may not) lead to their changes in the future.
+     * Roughly speaking, there is a chance that those declarations will
+     * be deprecated in the near future or the semantics of their behavior may
+     * change in some way that may break some code.
+     */
     @ExperimentalCoroutinesApi
     suspend fun getCharacters() {
         val idsChannel = produce(CoroutineName("getCharacters")) {
             ids.forEach { send(it) }
         }
 
-        val time = measureTimeMillis {
+        _time.postValue(measureTimeMillis {
             coroutineScope {
                 launch(CoroutineName("c_one")) { processIds(idsChannel, "c_one") }
                 launch(CoroutineName("c_two")) { processIds(idsChannel, "c_two") }
                 launch(CoroutineName("c_three")) { processIds(idsChannel, "c_three") }
                 launch(CoroutineName("c_four")) { processIds(idsChannel, "c_four") }
             }
-        }
-
-        Log.e(">>>>>>TIME", "$time")
+        })
     }
 
-    @ObsoleteCoroutinesApi
     private suspend fun processIds(idsAux: ReceiveChannel<Int>, name: String) {
         idsAux.consumeEach {
             coroutineScope {
@@ -76,14 +86,16 @@ class CharactersViewModel(private val repository: CharactersRepository) : BaseVi
                 }
 
                 responseDeferred.await()?.firstOrNull()?.let { char ->
-                    var list = _characters.value
-                    if (list.isNullOrEmpty()) list = arrayListOf()
-
                     char.coroutineName = name
                     list.add(char)
                     _characters.postValue(list)
                 }
             }
         }
+    }
+
+    override fun onCleared() {
+        list.clear()
+        super.onCleared()
     }
 }
