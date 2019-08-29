@@ -34,18 +34,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCoffee"
-                    style="@style/ButtonWhite"
-                    android:layout_width="match_parent"
-                    android:layout_height="56dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/roboto_mono"
-                    android:text="@string/coffee"
-                    android:transitionName="containerAnimation"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnAnimations" />
 
             <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCharacters"
@@ -58,7 +46,20 @@
                     android:transitionName="containerAnimation"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnCoffee" />
+                    app:layout_constraintTop_toBottomOf="@id/btnAnimations" />
+
+            <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCoffee"
+                    style="@style/ButtonWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/roboto_mono"
+                    android:text="@string/coffee"
+                    android:transitionName="containerAnimation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnCharacters" />
 
             <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSingleRequests"
