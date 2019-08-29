@@ -19,7 +19,7 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="64dp"
                 android:fontFamily="@font/roboto_mono"
                 android:text="ANIMATIONS"
                 android:textColor="@color/almost_black"
@@ -59,9 +59,31 @@
                 tools:visibility="visible" />
 
         <ImageView
-                android:id="@+id/ivEsse"
+                android:id="@+id/ivKotlinLogo"
                 android:layout_width="match_parent"
-                android:layout_height="300dp" />
+                android:layout_height="300dp"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_kotlin_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
+        <com.google.android.material.button.MaterialButton
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/btnChange"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/almost_black"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="48dp"
+                android:layout_height="wrap_content"
+            android:text="CHANGE"
+            android:fontFamily="@font/roboto_mono"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
