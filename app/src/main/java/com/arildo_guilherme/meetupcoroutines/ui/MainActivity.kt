@@ -22,7 +22,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
     override fun subscribeUi() {
         super.subscribeUi()
 
-
         binding.btnAnimations.setOnClickListener {
             launchActivityForSharedElements<AnimationsActivity>(
                 null,

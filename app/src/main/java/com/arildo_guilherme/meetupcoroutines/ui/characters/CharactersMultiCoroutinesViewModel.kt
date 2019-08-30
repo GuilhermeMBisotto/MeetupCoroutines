@@ -19,7 +19,8 @@ import kotlin.system.measureTimeMillis
  * future but there is no replacement for them yet, so they cannot be deprecated right away.
  */
 @ObsoleteCoroutinesApi
-class CharactersMultiCoroutinesViewModel(private val repository: CharactersRepository) : BaseViewModel() {
+class CharactersMultiCoroutinesViewModel(private val repository: CharactersRepository) :
+    BaseViewModel() {
 
     companion object {
         private val list: ArrayList<Character> = arrayListOf()

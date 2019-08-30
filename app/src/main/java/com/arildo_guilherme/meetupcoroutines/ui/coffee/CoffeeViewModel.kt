@@ -19,12 +19,21 @@ class CoffeeViewModel : BaseViewModel() {
     companion object {
         private val list: ArrayList<String> = arrayListOf()
         private lateinit var espressoMachine: EspressoMachine
+
+        private val orders = listOf(
+            Menu.Cappuccino(CoffeeBean.Regular, Milk.Whole),
+            Menu.Cappuccino(CoffeeBean.Premium, Milk.Breve),
+            Menu.Cappuccino(CoffeeBean.Regular, Milk.NonFat),
+            Menu.Cappuccino(CoffeeBean.Decaf, Milk.Whole),
+            Menu.Cappuccino(CoffeeBean.Regular, Milk.NonFat),
+            Menu.Cappuccino(CoffeeBean.Decaf, Milk.NonFat)
+        )
     }
 
     private val _coffees = MutableLiveData<ArrayList<String>>()
     val coffees = Transformations.map(_coffees) { it }
 
-    fun getOrdersOneBarista(orders: List<Menu.Cappuccino>) = runBlocking {
+    fun getOrdersOneBarista() = runBlocking {
         orders.forEach { log(it) }
 
         list.clear()
@@ -50,7 +59,7 @@ class CoffeeViewModel : BaseViewModel() {
         espressoMachine.destroy()
     }
 
-    fun getOrdersTwoBaristas(orders: List<Menu.Cappuccino>) = runBlocking {
+    fun getOrdersTwoBaristas() = runBlocking {
         orders.forEach { log(it) }
 
         list.clear()

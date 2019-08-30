@@ -9,7 +9,6 @@ android {
     defaultConfig {
         applicationId "com.arildo_guilherme.meetupcoroutines"
         vectorDrawables.useSupportLibrary = true
-
     }
 }
 

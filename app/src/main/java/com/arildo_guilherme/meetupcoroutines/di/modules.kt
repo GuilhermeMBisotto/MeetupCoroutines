@@ -20,6 +20,7 @@ private val appViewModelModule = module {
     viewModel { CoffeeViewModel() }
 }
 
+@ExperimentalCoroutinesApi
 @ObsoleteCoroutinesApi
 fun getAppModules(): List<Module> {
     return listOf(appViewModelModule)
