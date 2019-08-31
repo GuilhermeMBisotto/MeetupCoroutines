@@ -33,7 +33,7 @@ data class Thumbnail(
         }
     }
 
-    fun urlPath(type: ThumbnailType): String {
-        return path + "/" + type.value + "." + extension
+    fun urlPath(): String {
+        return "$path.$extension"
     }
 }

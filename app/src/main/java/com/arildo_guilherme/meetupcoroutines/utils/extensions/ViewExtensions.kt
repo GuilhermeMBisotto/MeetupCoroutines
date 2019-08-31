@@ -3,6 +3,7 @@ package com.arildo_guilherme.meetupcoroutines.utils.extensions
 import android.animation.ValueAnimator
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.core.content.ContextCompat
 import androidx.transition.AutoTransition
 import androidx.transition.Scene
@@ -26,6 +27,7 @@ inline fun <T : View> T.runTransition(block: T.() -> Unit): T {
 inline fun <T : View> T.runTransition(duration: Long, block: T.() -> Unit): T {
     val transition = AutoTransition()
     transition.duration = duration
+    transition.interpolator = AccelerateDecelerateInterpolator()
     TransitionManager.go(Scene(this.parent as ViewGroup), transition)
     block()
     return this

@@ -3,39 +3,46 @@
         xmlns:bind="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:layout_margin="4dp"
             android:foreground="@drawable/ripple_white"
             android:onClick="@{() -> adapter.onItemClicked(obj)}">
 
-        <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/ivImage"
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                bind:imageSet="@{obj.thumbnail.path}"
-                tools:src="@tools:sample/avatars" />
+                android:layout_height="match_parent">
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/black80"
-                bind:layout_constraintBottom_toBottomOf="@id/ivImage"
-                bind:layout_constraintEnd_toEndOf="parent"
-                android:padding="8dp"
-                android:gravity="center"
-                bind:layout_constraintStart_toStartOf="parent">
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    bind:imageSet="@{obj.thumbnail.urlPath()}"
+                    tools:src="@tools:sample/avatars" />
 
-            <TextView
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{obj.coroutineName == null ? obj.name : obj.coroutineName}"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/roboto_mono"/>
-        </LinearLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:background="@color/black80"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    bind:layout_constraintBottom_toBottomOf="@id/ivImage"
+                    bind:layout_constraintEnd_toEndOf="parent"
+                    bind:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif-monospace"
+                        android:text="@{obj.coroutineName == null ? obj.name : obj.coroutineName}"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        tools:text="Miranha" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
     <data>
 

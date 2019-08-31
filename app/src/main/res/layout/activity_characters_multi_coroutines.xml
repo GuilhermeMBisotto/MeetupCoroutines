@@ -15,7 +15,7 @@
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:paddingTop="32dp"
-                android:paddingBottom="32dp"
+                android:paddingBottom="48dp"
                 app:data="@{viewModel.characters}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"

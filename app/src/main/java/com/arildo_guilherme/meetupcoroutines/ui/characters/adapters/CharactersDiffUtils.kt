@@ -3,6 +3,7 @@ package com.arildo_guilherme.meetupcoroutines.ui.characters.adapters
 import android.os.Bundle
 import androidx.recyclerview.widget.DiffUtil
 import com.arildo_guilherme.data.characters.model.Character
+import com.arildo_guilherme.meetupcoroutines.base.BaseRecyclerViewAdapter.Companion.BUNDLE_ITEMS
 
 class CharactersDiffUtils(
     private val oldList: List<Character>?,
@@ -58,7 +59,7 @@ class CharactersDiffUtils(
 
             val diff = Bundle()
             if (newItem !== oldItem) {
-                diff.putParcelable("items", newItem)
+                diff.putParcelable(BUNDLE_ITEMS, newItem)
             }
 
             return if (diff.size() == 0) {

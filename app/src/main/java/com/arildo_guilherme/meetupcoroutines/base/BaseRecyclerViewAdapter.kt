@@ -14,6 +14,10 @@ abstract class BaseRecyclerViewAdapter<T>(
 ) :
     RecyclerView.Adapter<BaseRecyclerViewAdapter.BaseViewHolder<T>>(), BindableAdapter<List<T>> {
 
+    companion object {
+        const val BUNDLE_ITEMS = "items"
+    }
+
     protected abstract fun getObjForPosition(position: Int): Any
     protected abstract fun getLayoutIdForPosition(position: Int): Int
     protected abstract fun getAdapter(position: Int): BaseRecyclerViewAdapter<T>
@@ -54,7 +58,7 @@ abstract class BaseRecyclerViewAdapter<T>(
         } else {
             val args = (payloads[0]) as Bundle
             for (key in args.keySet()) {
-                if (key == "items") {
+                if (key == BUNDLE_ITEMS) {
                     holder.bind(getAdapter(position))
                     holder.bind(getObjForPosition(position))
                 }

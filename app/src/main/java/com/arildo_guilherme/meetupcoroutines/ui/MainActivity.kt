@@ -25,8 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         binding.btnAnimations.setOnClickListener {
             launchActivityForSharedElements<AnimationsActivity>(
                 null,
-                Pair(btnAnimations, "containerAnimation"),
-                Pair(btnAnimations, "textAnimation")
+                Pair(btnAnimations, getString(R.string.containerAnimation))
             )
         }
 

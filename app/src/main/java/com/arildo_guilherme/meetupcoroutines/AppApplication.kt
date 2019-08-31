@@ -16,6 +16,10 @@ class AppApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        setupKoin()
+    }
+
+    private fun setupKoin() {
         startKoin {
             printLogger()
             androidContext(this@AppApplication)
