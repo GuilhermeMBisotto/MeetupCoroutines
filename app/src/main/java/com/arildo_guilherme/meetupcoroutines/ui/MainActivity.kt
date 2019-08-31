@@ -1,4 +1,4 @@
-package com.arildo_guilherme.meetupcoroutines
+package com.arildo_guilherme.meetupcoroutines.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
