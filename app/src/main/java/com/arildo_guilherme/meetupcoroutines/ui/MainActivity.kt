@@ -1,30 +1,48 @@
 package com.arildo_guilherme.meetupcoroutines.ui
 
-import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import co.dx.components.meetupcoroutines.R
+import androidx.core.util.Pair
+import com.arildo_guilherme.meetupcoroutines.R
+import com.arildo_guilherme.meetupcoroutines.base.BaseActivity
+import com.arildo_guilherme.meetupcoroutines.databinding.ActivityMainBinding
+import com.arildo_guilherme.meetupcoroutines.ui.animations.AnimationsActivity
+import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersActivity
+import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersMultiCoroutinesActivity
+import com.arildo_guilherme.meetupcoroutines.ui.characters.CharactersSingleCoroutinesActivity
+import com.arildo_guilherme.meetupcoroutines.ui.coffee.CoffeeActivity
+import com.arildo_guilherme.meetupcoroutines.utils.extensions.launchActivity
+import com.arildo_guilherme.meetupcoroutines.utils.extensions.launchActivityForSharedElements
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.ObsoleteCoroutinesApi
 
-class MainActivity : AppCompatActivity() {
+@ExperimentalCoroutinesApi
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+    @ObsoleteCoroutinesApi
+    override fun subscribeUi() {
+        super.subscribeUi()
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+        binding.btnAnimations.setOnClickListener {
+            launchActivityForSharedElements<AnimationsActivity>(
+                null,
+                Pair(btnAnimations, getString(R.string.containerAnimation))
             )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        }
+
+        binding.btnCoffee.setOnClickListener {
+            launchActivity<CoffeeActivity> { }
+        }
+
+        binding.btnSingleRequests.setOnClickListener {
+            launchActivity<CharactersSingleCoroutinesActivity> { }
+        }
+
+        binding.btnMultipleRequests.setOnClickListener {
+            launchActivity<CharactersMultiCoroutinesActivity> { }
+        }
+
+        binding.btnCharacters.setOnClickListener {
+            launchActivity<CharactersActivity> { }
+        }
     }
 }

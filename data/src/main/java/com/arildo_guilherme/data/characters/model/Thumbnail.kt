@@ -1,9 +1,13 @@
 package com.arildo_guilherme.data.characters.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Thumbnail(
     var path: String,
     var extension: String
-) {
+)  : Parcelable {
     companion object {
         enum class ThumbnailType(val value: String) {
             PORTRAIT_SMALL("portrait_small"),
@@ -29,7 +33,7 @@ data class Thumbnail(
         }
     }
 
-    fun urlPath(type: ThumbnailType): String {
-        return path + "/" + type.value + "." + extension
+    fun urlPath(): String {
+        return "$path.$extension"
     }
 }

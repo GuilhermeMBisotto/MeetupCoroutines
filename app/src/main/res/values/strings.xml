@@ -1,6 +1,16 @@
 <resources>
-    <string name="app_name">Meetup Coroutines</string>
-    <string name="title_home">Callback</string>
-    <string name="title_dashboard">RX</string>
-    <string name="title_notifications">Coroutines</string>
+    <string name="app_name">MeetUp Coroutines</string>
+
+    <string name="animations">Animations</string>
+    <string name="coffee">Coffee</string>
+    <string name="characters">Characters</string>
+    <string name="single_coroutines">Single Coroutines</string>
+    <string name="multi_coroutines">Multiple Coroutines</string>
+
+    <string name="one_barista">One Barista</string>
+    <string name="two_barista">Two Baristas</string>
+
+    <string name="with">with</string>
+    <string name="coroutines">Coroutines</string>
+    <string name="change_color">Change Color</string>
 </resources>

@@ -3,12 +3,13 @@ package com.arildo_guilherme.data.characters.remote.datasource
 import com.arildo_guilherme.data.characters.contract.CharactersDataSource
 import com.arildo_guilherme.data.characters.model.CharactersResult
 import com.arildo_guilherme.data.characters.remote.service.CharactersApiService
+import retrofit2.Response
 
 class CharactersRemoteDataSource(private val api: CharactersApiService) :
-    CharactersDataSource.remote {
+    CharactersDataSource.Remote {
 
-    override suspend fun getcharacters(offset: Int, limit: Int): CharactersResult =
+    override suspend fun getCharacters(offset: Int, limit: Int): Response<CharactersResult>? =
         api.characters(offset, limit)
 
-    override suspend fun getcharacter(id: Int): CharactersResult = api.character(id)
+    override suspend fun getCharacter(id: Int): Response<CharactersResult>? = api.character(id)
 }
