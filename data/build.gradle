@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootProject.projectDir/base-build.gradle"
+
+android {
+    buildTypes {
+        debug {
+
+            buildConfigField "String", "API_BASE_URL", "\"https://gateway.marvel.com/\""
+            buildConfigField 'String', 'API_PRIVATE_KEY', "\"${debugEnvironment.privateKey}\""
+            buildConfigField 'String', 'API_PUBLIC_KEY', "\"${debugEnvironment.publicKey}\""
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+
+            buildConfigField "String", "API_BASE_URL", "\"https://gateway.marvel.com/\""
+            buildConfigField 'String', 'API_PRIVATE_KEY', "\"${releaseEnvironment.privateKey}\""
+            buildConfigField 'String', 'API_PUBLIC_KEY', "\"${releaseEnvironment.publicKey}\""
+
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /* ANDROIDX */
+    api "androidx.core:core-ktx:$core_ktx_version"
+    api "androidx.lifecycle:lifecycle-extensions:$arch_version"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$arch_version"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:$arch_version"
+    api "androidx.work:work-runtime-ktx:$work_runtime_version"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:$arch_version"
+
+    /* RETROFIT */
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
+
+    /* KOIN */
+    api "org.koin:koin-android:$koin_version"
+    api "org.koin:koin-android-viewmodel:$koin_version"
+
+    /* TEST */
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_ext_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+}

@@ -3,4 +3,21 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="almost_black">#ff121212</color>
+    <color name="window_bg">@color/grey10</color>
+    <color name="grey">@color/grey50</color>
+    <color name="black80">#CC000000</color>
+    <color name="white">@android:color/white</color>
+
+    <color name="grey10">#ff1a1a1a</color>
+    <color name="grey15">#ff262626</color>
+    <color name="grey20">#ff333333</color>
+    <color name="grey30">#ff4f4f4f</color>
+    <color name="grey50">#ff7f7f7f</color>
+    <color name="grey60">#ff999999</color>
+    <color name="grey70">#ffb3b3b3</color>
+    <color name="grey80">#ffcccccc</color>
+    <color name="grey90">#ffe6e6e6</color>
+    <color name="grey95">#fff6f6f6</color>
+
 </resources>
