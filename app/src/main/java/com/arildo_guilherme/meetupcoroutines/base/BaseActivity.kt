@@ -10,7 +10,11 @@ import androidx.databinding.ViewDataBinding
 import com.arildo_guilherme.meetupcoroutines.NetworkChangeReceiver
 import com.arildo_guilherme.meetupcoroutines.utils.extensions.activityBinding
 import com.arildo_guilherme.meetupcoroutines.utils.extensions.animateTransitionOnRebind
-import kotlinx.coroutines.*
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
 abstract class BaseActivity<T : ViewDataBinding>(
